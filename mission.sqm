@@ -1,0 +1,574 @@
+version=12;
+class Mission
+{
+	addOns[]=
+	{
+		"a3_characters_f",
+		"a3_map_altis",
+		"A3_Characters_F_BLUFOR",
+		"A3_Data_F_Curator_Characters",
+		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"A3_Characters_F_EPC"
+	};
+	addOnsAuto[]=
+	{
+		"A3_Characters_F_BLUFOR",
+		"a3_characters_f",
+		"A3_Characters_F_EPC",
+		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"a3_map_altis"
+	};
+	randomSeed=4915155;
+	class Intel
+	{
+		briefingName="VIPX";
+		overviewText="Extract, defend, or eliminate the VIP!";
+		resistanceWest=0;
+		startWeather=0;
+		startWind=0.099999994;
+		startWaves=0.099999994;
+		forecastWeather=0;
+		forecastWind=0.099999994;
+		forecastWaves=0.099999994;
+		forecastLightnings=0.099999994;
+		year=2035;
+		month=6;
+		day=24;
+		hour=4;
+		minute=20;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+	class Groups
+	{
+		items=10;
+		class Item0
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8417.4414,111.33943,25115.184};
+					id=0;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					text="b_alpha";
+					description="Alpha Leader";
+				};
+			};
+		};
+		class Item1
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8420.1777,111.47005,25115.123};
+					id=1;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="b_bravo";
+					description="Bravo Leader";
+				};
+			};
+		};
+		class Item2
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8422.8545,111.5578,25115.121};
+					id=2;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="b_charlie";
+					description="Charlie Leader";
+				};
+			};
+		};
+		class Item3
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8428.9824,111.35568,25115.184};
+					id=3;
+					side="WEST";
+					vehicle="C_Nikos_aged";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+					skill=0.60000002;
+					text="b_vip";
+					description="VIP";
+				};
+			};
+		};
+		class Item4
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8412.8594,110.90612,25102.75};
+					azimut=270;
+					id=4;
+					side="EAST";
+					vehicle="O_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					text="o_alpha";
+					description="Alpha Leader";
+				};
+			};
+		};
+		class Item5
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8412.8584,110.92686,25105.363};
+					azimut=270;
+					id=5;
+					side="EAST";
+					vehicle="O_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="o_bravo";
+					description="Bravo Leader";
+				};
+			};
+		};
+		class Item6
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8412.917,111.12038,25107.982};
+					azimut=270;
+					id=6;
+					side="EAST";
+					vehicle="O_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="o_charlie";
+					description="Charlie Leader";
+				};
+			};
+		};
+		class Item7
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8426.96,109.60958,25099.299};
+					azimut=180;
+					id=7;
+					side="GUER";
+					vehicle="I_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="i_alpha";
+					description="Alpha Leader";
+				};
+			};
+		};
+		class Item8
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8424.5801,109.74667,25099.355};
+					azimut=180;
+					id=8;
+					side="GUER";
+					vehicle="I_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="i_bravo";
+					description="Bravo Leader";
+				};
+			};
+		};
+		class Item9
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8421.9648,109.83047,25099.236};
+					azimut=180;
+					id=9;
+					side="GUER";
+					vehicle="I_Soldier_TL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="i_charlie";
+					description="Charlie Leader";
+				};
+			};
+		};
+	};
+	class Markers
+	{
+		items=36;
+		class Item0
+		{
+			position[]={8989.8691,35.356171,11987.917};
+			name="vip_zaros";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={11646.558,23.333086,11926.728};
+			name="b_zaros";
+			type="Empty";
+		};
+		class Item2
+		{
+			position[]={10079.962,13.527931,11533.384};
+			name="o_zaros";
+			type="Empty";
+		};
+		class Item3
+		{
+			position[]={3612.0947,18.521849,13161.008};
+			name="vip_kavala";
+			type="Empty";
+		};
+		class Item4
+		{
+			position[]={3142.2178,2.2439928,12478.686};
+			name="o_kavala";
+			type="Empty";
+		};
+		class Item5
+		{
+			position[]={5832.1206,22.461033,14788.209};
+			name="b_kavala";
+			type="Empty";
+		};
+		class Item6
+		{
+			position[]={16791.816,19.196163,12594.8};
+			name="vip_pyrgos";
+			type="Empty";
+		};
+		class Item7
+		{
+			position[]={16772.418,7.5760741,11849.669};
+			name="o_pyrgos";
+			type="Empty";
+		};
+		class Item8
+		{
+			position[]={16967.133,16.592276,15087.517};
+			name="b_pyrgos";
+			type="Empty";
+		};
+		class Item9
+		{
+			position[]={4918.9526,342.4436,21900.367};
+			name="vip_thronos";
+			type="Empty";
+		};
+		class Item10
+		{
+			position[]={4618.5825,295.76758,21540.115};
+			name="o_thronos";
+			type="Empty";
+		};
+		class Item11
+		{
+			position[]={2726.8142,4.3782501,22061.885};
+			name="b_thronos";
+			type="Empty";
+		};
+		class Item12
+		{
+			position[]={25728.758,20.883802,21391.059};
+			name="vip_sofia";
+			type="Empty";
+		};
+		class Item13
+		{
+			position[]={26686.801,16.448395,21209.9};
+			name="o_sofia";
+			type="Empty";
+		};
+		class Item14
+		{
+			position[]={23404.484,12.734918,19781.117};
+			name="b_sofia";
+			type="Empty";
+		};
+		class Item15
+		{
+			position[]={14068.307,26.599001,18710.662};
+			name="vip_athira";
+			type="Empty";
+		};
+		class Item16
+		{
+			position[]={14821.191,52.973118,19104.35};
+			name="o_athira";
+			type="Empty";
+		};
+		class Item17
+		{
+			position[]={14780.691,17.91,16793.627};
+			name="b_athira";
+			type="Empty";
+		};
+		class Item18
+		{
+			position[]={6163.979,43,16224.471};
+			name="vip_factory";
+			type="Empty";
+		};
+		class Item19
+		{
+			position[]={5121.75,50.082485,16775.953};
+			name="o_factory";
+			type="Empty";
+		};
+		class Item20
+		{
+			position[]={7522.583,158.63931,18160.563};
+			name="b_factory";
+			type="Empty";
+		};
+		class Item21
+		{
+			position[]={9367.6816,119.4799,15890.722};
+			name="vip_agiosd";
+			type="Empty";
+		};
+		class Item22
+		{
+			position[]={8272.2529,115.26749,15901.639};
+			name="o_agiosd";
+			type="Empty";
+		};
+		class Item23
+		{
+			position[]={9344.5088,39.365925,13720.353};
+			name="b_agiosd";
+			type="Empty";
+		};
+		class Item24
+		{
+			position[]={4873.229,191.40076,19456.258};
+			name="vip_remote";
+			type="Empty";
+		};
+		class Item25
+		{
+			position[]={4436.6108,271.45215,20812.951};
+			name="o_remote";
+			type="Empty";
+		};
+		class Item26
+		{
+			position[]={3831.6963,23.669586,17753.787};
+			name="b_remote";
+			type="Empty";
+		};
+		class Item27
+		{
+			position[]={20772.885,30.315634,7187.4121};
+			name="vip_airstrip";
+			type="Empty";
+		};
+		class Item28
+		{
+			position[]={20941.52,37.91,6494.2461};
+			name="o_airstrip";
+			type="Empty";
+		};
+		class Item29
+		{
+			position[]={20073.25,64.829041,9828.3682};
+			name="b_airstrip";
+			type="Empty";
+		};
+		class Item30
+		{
+			position[]={21996.742,28.359472,21054.504};
+			name="vip_hotel";
+			type="Empty";
+		};
+		class Item31
+		{
+			position[]={23013.246,21.598352,20105.703};
+			name="o_hotel";
+			type="Empty";
+		};
+		class Item32
+		{
+			position[]={25438.1,9.7432604,20324.645};
+			name="b_hotel";
+			type="Empty";
+		};
+		class Item33
+		{
+			position[]={14327.106,98.723259,21825.016};
+			name="vip_church";
+			type="Empty";
+		};
+		class Item34
+		{
+			position[]={14208.594,74.065277,21215.277};
+			name="o_church";
+			type="Empty";
+		};
+		class Item35
+		{
+			position[]={17016.486,4.3729177,21975.18};
+			name="b_church";
+			type="Empty";
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"a3_map_altis"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_altis"
+	};
+	randomSeed=12602355;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"a3_map_altis"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_altis"
+	};
+	randomSeed=15582336;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"a3_map_altis"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_altis"
+	};
+	randomSeed=12691043;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};

@@ -1,0 +1,115 @@
+
+author = "TacS";
+onLoadName = "VIPX";
+onLoadMission = "Extract, defend, or eliminate the VIP!";
+loadScreen = "vipx.paa";
+joinUnassigned = 1;
+respawn = BIRD;
+respawnDialog = 0;
+disableChannels[] = {0,1,2};
+//enableDebugConsole = 1;
+
+class Header
+{
+	gameType = CTF;
+	minPlayers = 1;
+	maxPlayers = 10;
+};
+
+#include "VAS\menu.hpp"
+
+class CfgFunctions
+{
+	#include "VAS\cfgfunctions.hpp"
+
+	class VIPX
+	{
+		file = "VIPX";
+		class Util
+		{
+			class startsWith {};
+			class buildingPosMax {};
+			class initEarplugs {};
+			class addAction {};
+			class endMission {};
+		};
+		class Main
+		{
+			class initVIP {};
+			class initLeader {};
+			class initObjectives {};
+		};
+	};
+};
+
+class RscTitles
+{
+	class ScoreBoard
+	{
+		idd = 1099;
+		name = "ScoreGUI";
+		fadeIn = 0;
+		fadeOut = 0;
+		duration = 1e11;
+		movingEnabled = false;
+		onLoad = "uiNamespace setVariable ['ScoreBoard', _this select 0]";
+
+		class Controls
+		{
+			class TimeRemaining
+			{
+				idc = 1101;
+				access = 0;
+				type = 13;
+				style = 0;
+				shadow = 1;
+				text = "10:00";
+				size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+				x = 0.9 * safezoneW + safezoneX;
+				y = 0.9 * safezoneH + safezoneY;
+				w = 0.1 * safezoneW;
+				h = 0.1 * safezoneH;
+				colorText[] = {1, 1, 1, 1};
+				class Attributes
+				{
+					font = "PuristaMedium";
+					color = "#ffffff";
+					align = "center";
+					shadow = 0.5;
+					size = "3";
+				};
+			};
+		};
+	};
+};
+
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "Blufor Wins";
+		subtitle = "";
+		description = "The VIP was successfully extracted.";
+		pictureBackground = "";
+		picture = "hd_objective";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+	class End2
+	{
+		title = "Opfor Wins";
+		subtitle = "";
+		description = "The VIP was successfully eliminated.";
+		pictureBackground = "";
+		picture = "KIA";
+		pictureColor[] = {0.6,0.0,0.0,1};
+	};
+	class End3
+	{
+		title = "Independent Wins";
+		subtitle = "";
+		description = "The VIP was successfully defended.";
+		pictureBackground = "";
+		picture = "hd_objective";
+		pictureColor[] = {0.0,0.6,0.0,1};
+	};
+};
