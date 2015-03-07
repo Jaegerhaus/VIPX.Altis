@@ -263,7 +263,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=36;
+		items=54;
 		class Item0
 		{
 			position[]={8989.8691,35.356171,11987.917};
@@ -478,6 +478,114 @@ class Mission
 		{
 			position[]={17016.486,4.3729177,21975.18};
 			name="b_church";
+			type="Empty";
+		};
+		class Item36
+		{
+			position[]={9155.8877,19.957321,21647.809};
+			name="vip_aristi";
+			type="Empty";
+		};
+		class Item37
+		{
+			position[]={9515.3682,132.90762,20352.912};
+			name="o_aristi";
+			type="Empty";
+		};
+		class Item38
+		{
+			position[]={12184.481,6.0154295,22906.801};
+			name="b_aristi";
+			type="Empty";
+		};
+		class Item39
+		{
+			position[]={9234.4326,41.325321,8047.0625};
+			name="vip_staka";
+			type="Empty";
+		};
+		class Item40
+		{
+			position[]={10233.163,121.0621,7581.7217};
+			name="o_staka";
+			type="Empty";
+		};
+		class Item41
+		{
+			position[]={8333.3984,74.335587,10102.454};
+			name="b_staka";
+			type="Empty";
+		};
+		class Item42
+		{
+			position[]={22691.527,4.1197281,13732.008};
+			name="vip_kategidis";
+			type="Empty";
+		};
+		class Item43
+		{
+			position[]={22297.807,4.2416539,15210.795};
+			name="o_kategidis";
+			type="Empty";
+		};
+		class Item44
+		{
+			position[]={19386.623,21.009329,14325.573};
+			name="b_kategidis";
+			type="Empty";
+		};
+		class Item45
+		{
+			position[]={18784.674,32.68742,16631.697};
+			name="vip_rodopoli";
+			type="Empty";
+		};
+		class Item46
+		{
+			position[]={18317.586,47.589233,15491.953};
+			name="o_rodopoli";
+			type="Empty";
+		};
+		class Item47
+		{
+			position[]={15209.956,17.91,16762.533};
+			name="b_rodopoli";
+			type="Empty";
+		};
+		class Item48
+		{
+			position[]={12780.144,46.056484,19681.506};
+			name="vip_ifestiona";
+			type="Empty";
+		};
+		class Item49
+		{
+			position[]={13816.422,19.835613,18909.361};
+			name="o_ifestiona";
+			type="Empty";
+		};
+		class Item50
+		{
+			position[]={9180.7969,14.537441,21639.91};
+			name="b_ifestiona";
+			type="Empty";
+		};
+		class Item51
+		{
+			position[]={17846.279,2.061631,18139.941};
+			name="vip_kalithea";
+			type="Empty";
+		};
+		class Item52
+		{
+			position[]={18861.105,20.751247,18154.252};
+			name="o_kalithea";
+			type="Empty";
+		};
+		class Item53
+		{
+			position[]={16667.172,4.9834666,20456.549};
+			name="b_kalithea";
 			type="Empty";
 		};
 	};
