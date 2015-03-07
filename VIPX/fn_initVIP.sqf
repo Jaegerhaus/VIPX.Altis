@@ -24,7 +24,7 @@ forEach ["I_medic_F", "I_Soldier_GL_F", "I_Soldier_02_f"];
 
 // create ammo box
 _crate = "Land_CratesWooden_F" createVehicle [_vipPos select 0, (_vipPos select 1) + 1, (_vipPos select 2) + 1];
-[[_crate, "<t color='#ff1111'>Virtual Ammobox</t>", "VAS\open.sqf", nil, 0, true, true, "", "independent == side _this"], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
+[[_crate, "<t color='#ff1111'>Virtual Ammobox</t>", "[""Open"",true] spawn BIS_fnc_arsenal", nil, 0, true, true, "", "independent == side _this"], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
 
 VIPX_vip_running = false;
 VIPX_vip_contact = false;

@@ -61,7 +61,7 @@ if ("" != _vicType) then
 	_vic setDir 180;
 
 	// add ammobox
-	[[_vic, "<t color='#ff1111'>Virtual Arsenal</t>", "VAS\open.sqf", nil, 0, true, true, "", format ["%1 == side _this", side _unit]], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
+	[[_vic, "<t color='#ff1111'>Virtual Arsenal</t>", "[""Open"",true] spawn BIS_fnc_arsenal", nil, 0, true, true, "", format ["%1 == side _this", side _unit]], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
 
 	// get in the vehicle
 	_wp = _group addWaypoint [_vicPos, 0];
