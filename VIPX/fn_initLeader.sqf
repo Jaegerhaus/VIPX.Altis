@@ -58,9 +58,10 @@ if ("" != _vicType) then
 	// spawn the vehicle
 	_vicPos = [_pos select 0, (_pos select 1) + 10, _pos select 2];
 	_vic = _vicType createVehicle _vicPos;
+	_vic setDir 180;
 
 	// add ammobox
-	[[_vic, "<t color='#ff1111'>Virtual Ammobox</t>", "VAS\open.sqf"], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
+	[[_vic, "<t color='#ff1111'>Virtual Arsenal</t>", "VAS\open.sqf", nil, 0, true, true, "", format ["%1 == side _this", side _unit]], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
 
 	// get in the vehicle
 	_wp = _group addWaypoint [_vicPos, 0];
@@ -112,6 +113,7 @@ else
 	_type = _x select 0;
 	_subordinate = _group createUnit [_type, _pos, [], 0, ""];
 	_subordinate setPosATL _pos;
+	[_subordinate] join _group;
 }
 forEach _team;
 

@@ -24,10 +24,10 @@ forEach ["I_medic_F", "I_Soldier_GL_F", "I_Soldier_02_f"];
 
 // create ammo box
 _crate = "Land_CratesWooden_F" createVehicle [_vipPos select 0, (_vipPos select 1) + 1, (_vipPos select 2) + 1];
-[[_crate, "<t color='#ff1111'>Virtual Ammobox</t>", "VAS\open.sqf"], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
+[[_crate, "<t color='#ff1111'>Virtual Ammobox</t>", "VAS\open.sqf", nil, 0, true, true, "", "independent == side _this"], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
 
 VIPX_vip_running = false;
-VIPX_vip_free = false;
+VIPX_vip_contact = false;
 
 [getPosATL b_vip] spawn
 {
@@ -37,7 +37,7 @@ VIPX_vip_free = false;
 	{
 		sleep 2;
 
-		if (getPosATL b_vip distance _pos > 5) then
+		if (!VIPX_vip_running && getPosATL b_vip distance _pos > 5) then
 		{
 			VIPX_vip_running = true;
 			b_vip setCaptive false;
@@ -58,17 +58,18 @@ VIPX_vip_free = false;
 		{
 			[["END1"], "VIPX_fnc_endMission", true, true, true] call BIS_fnc_mp;
 		};
-		if (!VIPX_vip_free) then
+		if (!VIPX_vip_contact) then
 		{
 			{
-				if (b_vip distance _x < 2) then
+				if (!VIPX_vip_contact && b_vip distance _x < 2) then
 				{
-					VIPX_vip_free = true;
+					VIPX_vip_contact = true;
 					b_vip setCaptive false;
 					b_vip enableAI "MOVE";
+					b_vip setBehaviour "CARELESS";
 					[b_vip] join group _x;
 					{ _x reveal [b_vip, 3]; } foreach allunits;
-					["VIP has been contacted!", "hint", true, true, true] call BIS_fnc_mp;
+					["VIP contacted!", "hint", true, true, true] call BIS_fnc_mp;
 				};
 			}
 			forEach [b_alpha, b_bravo, b_charlie];

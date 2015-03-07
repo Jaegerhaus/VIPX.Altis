@@ -11,3 +11,5 @@ objectives = [];
 forEach allMapMarkers;
 
 objective = objectives call BIS_fnc_selectRandom;
+
+diag_log format ["Objective is %1", objective];

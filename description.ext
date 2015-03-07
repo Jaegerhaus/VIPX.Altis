@@ -7,7 +7,7 @@ joinUnassigned = 1;
 respawn = BIRD;
 respawnDialog = 0;
 disableChannels[] = {0,1,2};
-//enableDebugConsole = 1;
+enableDebugConsole = 1;
 
 class Header
 {
@@ -38,6 +38,7 @@ class CfgFunctions
 			class initVIP {};
 			class initLeader {};
 			class initObjectives {};
+			class initTriggers {};
 		};
 	};
 };
