@@ -15,9 +15,9 @@ _trigger setTriggerArea [10000, 10000, 0, false];
 _trigger setTriggerActivation ["WEST", "NOT PRESENT", false];
 _trigger setTriggerStatements ["this", "VIPX_west_eliminated = true", ""];
 _trigger = createTrigger ["EmptyDetector", getPosATL b_vip];
-_trigger setTriggerStatements ["VIPX_west_eliminated && VIPX_east_eliminated", "[[""END3""], ""VIPX_fnc_endMission"", true, true, true] call BIS_fnc_mp;", ""];
+_trigger setTriggerStatements ["VIPX_west_eliminated && VIPX_east_eliminated", "[""END3"", ""endMission"", true, true, true] call BIS_fnc_mp;", ""];
 
 // create trigger for timeout
 _trigger = createTrigger ["EmptyDetector", getPosATL b_vip];
 _trigger setTriggerTimeout [600, 600, 600, false];
-_trigger setTriggerStatements ["true", "[[""END3""], ""VIPX_fnc_endMission"", true, true, true] call BIS_fnc_mp;", ""];
+_trigger setTriggerStatements ["true", "[""END3"", ""endMission"", true, true, true] call BIS_fnc_mp;", ""];

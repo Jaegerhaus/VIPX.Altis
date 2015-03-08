@@ -27,7 +27,6 @@ class CfgFunctions
 			class buildingPosMax {};
 			class initEarplugs {};
 			class addAction {};
-			class endMission {};
 		};
 		class Main
 		{

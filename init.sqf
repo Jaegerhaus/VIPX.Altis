@@ -63,7 +63,7 @@ if (!isDedicated) then
 		};
 	};
 
-	if (player) then
+	if (!isNull player) then
 	{
 		// give the player a sec, then present task
 		waitUntil {time > 10};
