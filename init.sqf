@@ -6,21 +6,23 @@ if (isServer) then
 {
 	waitUntil {time > 0};
 
+	if (isNull b_vip) then { endMission "END2"; };
+
 	[] call VIPX_fnc_initObjectives;
 
 	[] call VIPX_fnc_initVIP;
 
-	[b_alpha,  -1] call VIPX_fnc_initLeader;
-	[b_bravo,   0] call VIPX_fnc_initLeader;
-	[b_charlie, 1] call VIPX_fnc_initLeader;
+	if (!isNull b_alpha) then   { [b_alpha,  -1] call VIPX_fnc_initLeader; };
+	if (!isNull b_bravo) then   { [b_bravo,   0] call VIPX_fnc_initLeader; };
+	if (!isNull b_charlie) then { [b_charlie, 1] call VIPX_fnc_initLeader; };
 
-	[o_alpha,  -1] call VIPX_fnc_initLeader;
-	[o_bravo,   0] call VIPX_fnc_initLeader;
-	[o_charlie, 1] call VIPX_fnc_initLeader;
+	if (!isNull o_alpha) then   { [o_alpha,  -1] call VIPX_fnc_initLeader; };
+	if (!isNull o_bravo) then   { [o_bravo,   0] call VIPX_fnc_initLeader; };
+	if (!isNull o_charlie) then { [o_charlie, 1] call VIPX_fnc_initLeader; };
 
-	[i_alpha,  -1] call VIPX_fnc_initLeader;
-	[i_bravo,   0] call VIPX_fnc_initLeader;
-	[i_charlie, 1] call VIPX_fnc_initLeader;
+	if (!isNull i_alpha) then   { [i_alpha,  -1] call VIPX_fnc_initLeader; };
+	if (!isNull i_bravo) then   { [i_bravo,   0] call VIPX_fnc_initLeader; };
+	if (!isNull i_charlie) then { [i_charlie, 1] call VIPX_fnc_initLeader; };
 
 	[] call VIPX_fnc_initTriggers;
 };
@@ -32,53 +34,35 @@ if (!isDedicated) then
 
 	if (time > 10) then // must be JIP
 	{
-		0 cutText ["Waiting for next round ...", "BLACK IN"];
+		0 cutText ["Mission already started ...", "BLACK FADED"];
+
+		waitUntil {!isNull player};
+		endMission "END4";
 	}
-	else
+	else // player
 	{
-		// have to reset setCaptive for players
-		if (b_vip == player) then { b_vip setCaptive true; };
+		// fixes #1 complaint
+		player enableFatigue false;
 
 		[player] call VIPX_fnc_initEarplugs;
 
-		player enableFatigue false; // fixes #1 complaint
+		if (b_vip == player) then
+		{
+			player setCaptive true;
+			player addEventHandler ["Killed", { ["END2", "endMission", true, true, false] call BIS_fnc_MP }];
+		};
 
 		waitUntil {time > 3};
 		0 cutText ["", "BLACK IN"];
 	};
 
 	// setup timer display
-	cutRsc ["ScoreBoard", "PLAIN"];
-	[] spawn
-	{
-		disableSerialization;
-		_scoreBoard = uiNamespace getVariable ["ScoreBoard", displayNull];
-		waitUntil { !isNull _scoreBoard };
-		_scoreTimeRemaining = _scoreBoard displayCtrl 1101;
-
-		while {time <= 600} do
-		{
-			_scoreTimeRemaining ctrlSetStructuredText text format ["%1", [600 - time, "MM:SS"] call BIS_fnc_secondsToString];
-			sleep 0.99;
-		};
-	};
+	[] call VIPX_fnc_initScoreboard;
 
 	if (!isNull player) then
 	{
 		// give the player a sec, then present task
 		waitUntil {time > 10};
-		_description = "";
-		switch (side player) do
-		{
-			case west: {_description = "Extract the VIP"};
-			case east: {_description = "Eliminate the VIP"};
-			case civilian: {_description = "Wait for extraction"};
-			case independent: {_description = "Protect the VIP"};
-		};
-		_task = player createSimpleTask ["vip"];
-		_task setSimpleTaskDescription [_description, _description, "VIP"];
-		_task setSimpleTaskDestination (getPosATL b_vip);
-		player setCurrentTask _task;
-		["TaskAssigned", ["", _description]] call BIS_fnc_showNotification;
+		[] call VIPX_fnc_initTask;
 	};
 };

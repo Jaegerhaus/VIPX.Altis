@@ -1,5 +1,5 @@
 
-author = "TacS";
+author = "Tactical Shenanigans";
 onLoadName = "VIPX";
 onLoadMission = "Extract, defend, or eliminate the VIP!";
 loadScreen = "vipx.paa";
@@ -34,6 +34,8 @@ class CfgFunctions
 			class initLeader {};
 			class initObjectives {};
 			class initTriggers {};
+			class initScoreboard {};
+			class initTask {};
 		};
 	};
 };
@@ -107,5 +109,14 @@ class CfgDebriefing
 		pictureBackground = "";
 		picture = "hd_objective";
 		pictureColor[] = {0.0,0.6,0.0,1};
+	};
+	class End4
+	{
+		title = "Mission already started";
+		subtitle = "";
+		description = "Please wait for the next mission to start.";
+		pictureBackground = "";
+		picture = "hd_objective";
+		pictureColor[] = {0.0,0.6,0.6,1};
 	};
 };

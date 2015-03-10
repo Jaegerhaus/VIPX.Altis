@@ -9,7 +9,7 @@ b_vip setCaptive true;
 b_vip disableAI "MOVE";
 removeAllWeapons b_vip;
 
-b_vip addEventHandler ["Killed", { ["END2", "endMission", true, true, true] call BIS_fnc_mp; }];
+b_vip addEventHandler ["Killed", { ["END2", "endMission", true, true, false] call BIS_fnc_MP; }];
 
 // create guard group
 _group = createGroup independent;
@@ -24,14 +24,14 @@ forEach ["I_medic_F", "I_Soldier_GL_F", "I_Soldier_02_f"];
 
 // create ammo box
 _crate = "Land_CratesWooden_F" createVehicle [_vipPos select 0, (_vipPos select 1) + 1, (_vipPos select 2) + 1];
-[[_crate, "<t color='#ff1111'>Virtual Arsenal</t>", "[""Open"",true] spawn BIS_fnc_arsenal", nil, 0, true, true, "", "independent == side _this"], "VIPX_fnc_addAction", true, true, true] call BIS_fnc_mp;
+[[_crate, "<t color='#ff1111'>Virtual Arsenal</t>", "[""Open"",true] spawn BIS_fnc_arsenal", nil, 0, true, true, "", "independent == side _this"], "VIPX_fnc_addAction", true, true, false] call BIS_fnc_MP;
 
 VIPX_vip_running = false;
 VIPX_vip_contact = false;
 
-[getPosATL b_vip] spawn
+[] spawn
 {
-	_pos = _this select 0;
+	_pos = getPosATL b_vip;
 
 	while {true} do
 	{
@@ -40,28 +40,26 @@ VIPX_vip_contact = false;
 		if (!VIPX_vip_running && getPosATL b_vip distance _pos > 5) then
 		{
 			VIPX_vip_running = true;
-			b_vip setCaptive false;
-			{ _x reveal [b_vip, 3]; } forEach allunits;
+			["VIP is running!", "hint", true, false, false] call BIS_fnc_MP;
+			[[b_vip, false], "setCaptive", b_vip, false, false] call BIS_fnc_MP;
 			{
 				_group = group _x;
+				_group reveal [b_vip, 3];
 				deleteWaypoint [_group, 0];
-				_wp = _group addWaypoint [getPosATL b_vip, 0];
+				_wp = _group addWaypoint [b_vip, 0];
 				_wp setWaypointType "DESTROY";
-				_wp waypointAttachVehicle b_vip;
-				_wp setWaypointCompletionRadius 0.1;
 				_wp setWaypointDescription "Find the VIP";
 			}
 			forEach [i_alpha, i_bravo, i_charlie];
-			["VIP is running!", "hint", true, true, true] call BIS_fnc_mp;
 		};
 		if (getPosATL b_vip distance _pos > 500) then
 		{
-			["END1", "endMission", true, true, true] call BIS_fnc_mp;
+			["END1", "endMission", true, true, false] call BIS_fnc_MP;
 		};
 		if (!VIPX_vip_contact) then
 		{
 			{
-				if (!VIPX_vip_contact && b_vip distance _x < 2) then
+				if (b_vip distance _x < 2 && !VIPX_vip_contact) then
 				{
 					VIPX_vip_contact = true;
 					b_vip setCaptive false;
@@ -69,7 +67,7 @@ VIPX_vip_contact = false;
 					b_vip setBehaviour "CARELESS";
 					[b_vip] join group _x;
 					{ _x reveal [b_vip, 3]; } foreach allunits;
-					["VIP contacted!", "hint", true, true, true] call BIS_fnc_mp;
+					["VIP contacted!", "hint", true, false, false] call BIS_fnc_MP;
 				};
 			}
 			forEach [b_alpha, b_bravo, b_charlie];
