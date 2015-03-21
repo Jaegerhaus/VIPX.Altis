@@ -1,6 +1,9 @@
 
-_unit = _this select 0;
-_offset = _this select 1;
+_unitName = [_this, 0, ""] call BIS_fnc_param;
+_offset = [_this, 1, 0] call BIS_fnc_param;
+
+_unit = missionNamespace getVariable [_unitName, objNull];
+if (isNull _unit) exitWith {};
 
 _pos = [0, 0, 0];
 _team = [];
@@ -8,6 +11,7 @@ _vicType = "";
 
 _initWest =
 {
+	b_leaders = b_leaders + [_unit];
 	_pos = markerPos ("b_" + objective);
 	_vicType = "B_Heli_Light_01_F";
 	_team =
@@ -18,6 +22,7 @@ _initWest =
 };
 _initEast =
 {
+	o_leaders = o_leaders + [_unit];
 	_pos = markerPos ("o_" + objective);
 	_vicType = "O_G_Offroad_01_armed_F";
 	_team =
@@ -28,6 +33,7 @@ _initEast =
 };
 _initIndependent =
 {
+	i_leaders = i_leaders + [_unit];
 	_pos = markerPos ("vip_" + objective);
 	_team =
 		[

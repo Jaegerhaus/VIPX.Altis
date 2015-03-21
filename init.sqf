@@ -6,23 +6,28 @@ if (isServer) then
 {
 	waitUntil {time > 0};
 
-	if (isNull b_vip) then { endMission "END2"; };
+	if (isNull (missionNamespace getVariable ["b_vip", objNull])) then
+	{
+		["END2", "endMission", true, true, false] call BIS_fnc_MP;
+	};
 
 	[] call VIPX_fnc_initObjectives;
-
 	[] call VIPX_fnc_initVIP;
 
-	if (!isNull b_alpha) then   { [b_alpha,  -1] call VIPX_fnc_initLeader; };
-	if (!isNull b_bravo) then   { [b_bravo,   0] call VIPX_fnc_initLeader; };
-	if (!isNull b_charlie) then { [b_charlie, 1] call VIPX_fnc_initLeader; };
+	b_leaders = [];
+	["b_alpha",  -1] call VIPX_fnc_initLeader;
+	["b_bravo",   0] call VIPX_fnc_initLeader;
+	["b_charlie", 1] call VIPX_fnc_initLeader;
 
-	if (!isNull o_alpha) then   { [o_alpha,  -1] call VIPX_fnc_initLeader; };
-	if (!isNull o_bravo) then   { [o_bravo,   0] call VIPX_fnc_initLeader; };
-	if (!isNull o_charlie) then { [o_charlie, 1] call VIPX_fnc_initLeader; };
+	o_leaders = [];
+	["o_alpha",  -1] call VIPX_fnc_initLeader;
+	["o_bravo",   0] call VIPX_fnc_initLeader;
+	["o_charlie", 1] call VIPX_fnc_initLeader;
 
-	if (!isNull i_alpha) then   { [i_alpha,  -1] call VIPX_fnc_initLeader; };
-	if (!isNull i_bravo) then   { [i_bravo,   0] call VIPX_fnc_initLeader; };
-	if (!isNull i_charlie) then { [i_charlie, 1] call VIPX_fnc_initLeader; };
+	i_leaders = [];
+	["i_alpha",  -1] call VIPX_fnc_initLeader;
+	["i_bravo",   0] call VIPX_fnc_initLeader;
+	["i_charlie", 1] call VIPX_fnc_initLeader;
 
 	[] call VIPX_fnc_initTriggers;
 };
@@ -34,10 +39,7 @@ if (!isDedicated) then
 
 	if (time > 10) then // must be JIP
 	{
-		0 cutText ["Mission already started ...", "BLACK FADED"];
-
-		waitUntil {!isNull player};
-		endMission "END4";
+		0 cutText ["Mission already started ...", "BLACK IN", 5];
 	}
 	else // player
 	{

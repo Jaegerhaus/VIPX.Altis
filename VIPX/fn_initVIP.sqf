@@ -50,11 +50,7 @@ VIPX_vip_contact = false;
 				_wp setWaypointType "DESTROY";
 				_wp setWaypointDescription "Find the VIP";
 			}
-			forEach [i_alpha, i_bravo, i_charlie];
-		};
-		if (getPosATL b_vip distance _pos > 500) then
-		{
-			["END1", "endMission", true, true, false] call BIS_fnc_MP;
+			forEach i_leaders;
 		};
 		if (!VIPX_vip_contact) then
 		{
@@ -70,7 +66,11 @@ VIPX_vip_contact = false;
 					["VIP contacted!", "hint", true, false, false] call BIS_fnc_MP;
 				};
 			}
-			forEach [b_alpha, b_bravo, b_charlie];
+			forEach b_leaders;
+		};
+		if (getPosATL b_vip distance _pos > 500) then
+		{
+			["END1", "endMission", true, true, false] call BIS_fnc_MP;
 		};
 	};
 };

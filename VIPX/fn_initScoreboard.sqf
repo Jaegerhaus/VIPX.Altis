@@ -1,5 +1,5 @@
 
-cutRsc ["ScoreBoard", "PLAIN"];
+1 cutRsc ["ScoreBoard", "PLAIN"];
 [] spawn
 {
 	disableSerialization;
